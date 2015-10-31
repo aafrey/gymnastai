@@ -1,0 +1,53 @@
+#: import anthropometry anthropometry
+
+<Anthropometry>:
+    anthro_values: _anthro_values
+    anthro_metrics_input:_anthro_metrics_input
+    body_part_container: _body_part_container
+
+    orientation: 'vertical'
+    Spinner:
+        id: _anthro_values
+        size_hint_y: None
+        height: '40dp'
+        text: 'Choose Metric'
+        values: ('Height', 'Weight', 'Head and Neck', 'Torso', 'Pelvis', 'Femur', 'Tibia', 'Ankle to Ground', 'Foot', 'Humerus', 'Forearm', 'Hand', 'Acromion Height', 'Overhead Height')
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+        TextInput:
+            id: _anthro_metrics_input
+            multiline: False
+            on_text_validate: root.add_body_part_label(), root.update_anthro_metrics()
+        Button:
+            text: 'Add Measurement'
+            on_press: root.add_body_part_label(), root.update_anthro_metrics()
+    BoxLayout:
+        ScrollView:
+            StackLayout:
+                id: _body_part_container
+                size_hint_y: None
+                height: self.minimum_height
+        ScrollView:
+            StackLayout:
+                id:_body_part_metrics_container
+                size_hint_y: None
+                height: self.minimum_height
+
+<AnthroLabel>:
+    canvas.before:
+        Color:
+            rgb: 0, 255, 255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '30dp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+    color: 0, 0, 0, 1
+
+<SpacerLabel>:
+    size_hint_y: None
+    height: '5dp'

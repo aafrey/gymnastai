@@ -1,0 +1,79 @@
+Gymnastai:
+
+
+<Gymnastai>:
+    anim_type: 'slide_above_anim'
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            text: 'Username'
+            size_hint_y: None
+            height: '60dp'
+            color: 0, 0, 0, 1
+        MenuButton:
+            text: 'Measurements'
+            on_press: app.root.add_measurements_page(), app.root.toggle_state()
+        MenuButton:
+            text: 'Daily Log'
+            on_press: app.root.add_daily_log_page(),app.root.toggle_state()
+        MenuButton:
+            text: 'Personal Records'
+            on_press: app.root.add_pr_page(), app.root.toggle_state()
+        MenuButton:
+            text: 'Leaderboard'
+            on_press: app.root.toggle_state()
+        MenuButton:
+            text: 'History'
+            on_press: app.root.toggle_state()
+        MenuButton:
+            text: 'Settings'
+            on_press: app.root.toggle_state()
+        Label:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint_y: None
+            height: '60dp'
+            Button:
+                text: ']]'
+                size_hint_x: None
+                width: '60dp'
+                on_press: app.root.toggle_state()
+            Label:
+                text: 'Gymnastai'
+                font_size: 40
+                color: 0, 0, 0, 1
+            Button:
+                text: '[['
+                size_hint_x: None
+                width: '60dp'
+                on_press: app.root.toggle_state()
+        LandingPage:
+            id: _main_container
+            canvas.before:
+                Color:
+                    rgb: 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+
+
+<MenuButton@Button>:
+    size_hint_y: None
+    height: '40dp'
+#    border:(0, 0, 0, 0)
+
+

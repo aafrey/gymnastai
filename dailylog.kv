@@ -1,0 +1,105 @@
+#: import dailylog dailylog
+
+<DailyLog>:
+
+    set_date_text: _set_date_text
+    num_reps_text: _num_reps_text
+    set_weight_text: _set_weight_text
+    add_set_button: _add_set_button
+    movement_info: _movement_info
+    time_input: _time_input
+
+    orientation: 'vertical'
+    Spinner:
+        id: _movement_info
+        size_hint_y: None
+        height: '40dp'
+        text: 'Choose Movement'
+        values: ('Squat', 'Deadlift', 'Bench', 'Press', 'Snatch', 'Clean_and_Jerk')
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+        TextInput:
+            id: _set_date_text
+            text: 'DDMMYY'
+            multiline: False
+        TextInput:
+            id: _num_reps_text
+            text: 'Reps'
+            multiline: False
+            on_focus: True
+        TextInput:
+            id: _set_weight_text
+            text: 'Weight'
+            multiline: False
+        Button:
+            id: _add_set_button
+            text: 'Add Set'
+            on_press: root.add_set(), root.add_set_label()
+    BoxLayout:
+        ScrollView:
+            StackLayout:
+                id: _workout_container
+                size_hint_y: None
+                height: self.minimum_height
+        BoxLayout:
+            orientation: 'vertical'
+            ScrollView:
+                StackLayout:
+                    id: _metrics_container
+                    size_hint_y: None
+                    height: self.minimum_height
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            Label:
+                canvas.before:
+                    Color:
+                        rgb: 0, 0, 0
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text: 'Input Time'
+            TextInput:
+                id: _time_input
+                multiline: False
+            Button:
+                text: 'Calculate Power'
+                on_press: root.calculate_power()
+        StackLayout:
+            id: _power_stats
+
+
+<SetLabel>:
+    canvas.before:
+        Color:
+            rgb: 0, 255, 255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '30dp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+    color: 0, 0, 0, 1
+
+<PowerLabel>:
+    canvas.before:
+        Color:
+            rgb: 0, 255, 255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '30dp'
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    color: 0, 0, 0, 1
+
+<SpacerLabel>:
+    size_hint_y: None
+    height: '5dp'

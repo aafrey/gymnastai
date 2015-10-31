@@ -1,0 +1,125 @@
+dbname = {'Name': 'Name', 'Weight': 'Weight', 'Head & Neck': 'Head_and_Neck', 'Torso': 'Torso', 'Pelvis': 'Pelvis', 'Femur': 'Femur', 'Tibia': 'Tibia', 'Ankle to Ground': 'Ankle to Ground', 'Foot': 'Foot', 'Humerus': 'Humerus', 'Hand': 'Hand', 'Acromion Head': 'Acromion_Head', 'Overhead Height', 'Overhead_Height'}
+namedict.get(anthro_values, None;
+if dbname:
+    cursor.execute(
+
+
+  ############
+
+    def update_anthro_metrics(self):
+            con = mdb.connect('localhost', 'austin', 'chicken4wing', 'prdb')
+            self.ids._body_part_metrics_container.clear_widgets()
+
+            anthro_values = self.anthro_values.text
+            anthro_metrics_input = self.anthro_metrics_input.text
+
+            tb_columns = ['Height', 'Weight', 'Head_and_Neck', 'Torso', 'Pelvis', 'Femur', 'Tibia', 'Ankle_to_Ground', 'Foot', 'Humerus', 'Hand', 'Acromion_Head', 'Overhead_Height ]
+
+            with con:
+                cur = con.cursor()
+                cur.execute("SELECT * FROM Anthropometry")
+
+                if anthro_values in tb_columns:
+                    cur.execute("UPDATE Anthropometry SET %s = %s WHERE Id = %s", (
+                        anthro_values.replace(' ', '_'), anthro_metrics_input, '1'))
+
+33#############################
+
+# def update_anthro_metrics(self):
+    #     con = mdb.connect('localhost', 'austin', 'chicken4wing', 'prdb')
+    #     self.ids._body_part_metrics_container.clear_widgets()
+    #
+    #     anthro_values = self.anthro_values.text
+    #     anthro_metrics_input = self.anthro_metrics_input.text
+    #
+    #     with con:
+    #         cur = con.cursor()
+    #         cur.execute("SELECT * FROM Anthropometry")
+    #
+    #         if anthro_values == 'Name':
+    #             cur.execute("UPDATE Anthropometry SET Name = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Height':
+    #             cur.execute("UPDATE Anthropometry SET Height = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Weight':
+    #             cur.execute("UPDATE Anthropometry SET Weight = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Head & Neck':
+    #             cur.execute("UPDATE Anthropometry SET Head_and_Neck = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Torso':
+    #             cur.execute("UPDATE Anthropometry SET Torso = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Pelvis':
+    #             cur.execute("UPDATE Anthropometry SET Pelvis = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Femur':
+    #             cur.execute("UPDATE Anthropometry SET Femur = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Tibia':
+    #             cur.execute("UPDATE Anthropometry SET Tibia = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Ankle to Ground':
+    #             cur.execute("UPDATE Anthropometry SET Ankle_to_Ground = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Foot':
+    #             cur.execute("UPDATE Anthropometry SET Foot = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Humerus':
+    #             cur.execute("UPDATE Anthropometry SET Humerus = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Hand':
+    #             cur.execute("UPDATE Anthropometry SET Hand = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Acromion Head':
+    #             cur.execute("UPDATE Anthropometry SET Acromion_Head = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         elif anthro_values == 'Overhead Height':
+    #             cur.execute("UPDATE Anthropometry SET Overhead_Height = %s WHERE Id = %s",  (anthro_metrics_input, '1'))
+    #         else:
+    #             pass
+
+
+33##############################################3
+            #rows = cur.fetchall()
+            # if movement_name == "Squat":
+            #     for row in rows:
+            #         if row["Squat"] is not None:
+            #             pr_label = PrLabel(text=str(row["Date"])+'    '+row["Squat"]+' pounds')
+            #             self.ids._container.add_widget(pr_label)
+            # elif movement_name == "Deadlift":
+            #     for row in rows:
+            #         if row["Deadlift"] is not None:
+            #             pr_label = PrLabel(text=row["Date"]+'    '+row["Deadlift"]+' pounds')
+            #             self.ids._container.add_widget(pr_label)
+            # elif movement_name == "Bench":
+            #     for row in rows:
+            #         if row["Bench"] is not None:
+            #             pr_label = PrLabel(text=row["Date"]+'    '+row["Bench"]+' pounds')
+            #             self.ids._container.add_widget(pr_label)
+            # elif movement_name == "Press":
+            #     for row in rows:
+            #         if row["Press"] is not None:
+            #             pr_label = PrLabel(text=row["Date"]+'    '+row["Press"]+' pounds')
+            #             self.ids._container.add_widget(pr_label)
+            # elif movement_name == "Snatch":
+            #     for row in rows:
+            #         if row["Snatch"] is not None:
+            #             pr_label = PrLabel(text=row["Date"]+'    '+row["Snatch"]+' pounds')
+            #             self.ids._container.add_widget(pr_label)
+            # elif movement_name == "Clean_and_Jerk":
+            #     for row in rows:
+            #         if row["Clean_and_Jerk"] is not None:
+            #             pr_label = PrLabel(text=row["Date"]+'    '+row["Clean_and_Jerk"]+' pounds')
+            #             self.ids._container.add_widget(pr_label)
+
+
+squat = femur length
+deadlift = acromion height - humerus - forearm - ankle -1/2 tibia - plate diameter
+bench press = forearm + .5 humerus
+press = humerus + forearm
+snatch = oheverhead height - .5 plate diameter
+clean jerk = overhead height - .5 plate diameter
+
+
+
+###############################
+with con:
+            cur = con.cursor()
+            pr_columns = LiftingInfo.pr_columns
+            cur.execute("SELECT * FROM UserInfo")
+            rows = cur.fetchall()
+
+            if movement_name in pr_columns:
+                for row in rows:
+                    if row[movement_name.replace(' ', '_')] is not None:
+                        pr_label = PrLabel(text=str(row[movement_name.replace(' ', '_')]+' pounds'))
+                        self.ids._container.add_widget(pr_label)

@@ -1,0 +1,56 @@
+#: import liftinginfo liftinginfo
+
+<LiftingInfo>:
+    movement_name: _movement_name
+    new_pr: _new_pr
+
+    BoxLayout:
+        orientation: 'vertical'
+        Spinner:
+            id: _movement_name
+            text: 'Choose Lift'
+            values: ('Squat', 'Deadlift', 'Bench', 'Press', 'Snatch', 'Clean and Jerk')
+            size_hint_y: None
+            height: '40dp'
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                size_hint_y: None
+                height: '40dp'
+                TextInput:
+                    id: _new_pr
+                    text: 'Add PR'
+                    multiline: False
+                    on_text_validate: root.add_pr(), root.add_movement_label(), root.update_pr()
+                Button:
+                    text: 'Submit PR'
+                    on_press: root.add_pr(), root.add_movement_label(), root.update_pr()
+            BoxLayout:
+                ScrollView:
+                    StackLayout:
+                        id: _movement_label_container
+                        size_hint_y: None
+                        height: self.minimum_height
+                ScrollView:
+                    StackLayout:
+                        id: _pr_label_container
+                        size_hint_y: None
+                        height: self.minimum_height
+
+<PrLabel>:
+    canvas.before:
+        Color:
+            rgb: 0, 255, 255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: '30dp'
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle'
+    color: 0, 0, 0, 1
+
+<SpacerLabel>:
+    size_hint_y: None
+    height: '5dp'
