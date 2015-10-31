@@ -1,7 +1,0 @@
-put workout info in a dictionary{'movement': total weight, 'movement': total weight}
-
-where Date == date.text:
-    input string of collected sets reps
-
-where date == date.text:
-    process string to give workout info and calcluate power
